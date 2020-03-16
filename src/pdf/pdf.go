@@ -12,7 +12,7 @@ import (
 	"github.com/pdfcpu/pdfcpu/pkg/pdfcpu/validate"
 )
 
-const pdfExt = ".ext"
+const pdfExt = ".pdf"
 
 // Meta represents pdf-file's meta info
 type Meta struct {
