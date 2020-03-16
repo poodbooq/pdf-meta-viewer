@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" media="screen,projection" />
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <div class="container halign-wrapper">
+        <div class="row">
+            <div class="col s8 offset-s2">
+                <form action="#" method="post" enctype="multipart/form-data">
+                    <div class="file-field input-field">
+                        <div class="red btn-large">
+                            <i class="material-icons">picture_as_pdf</i>
+                            <input id="select_pdf" type="file" accept=".pdf" oninput="validate()">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div>
+                </form>
+
+                <a id="upload_btn" class="blue waves-effect waves-light btn file-field input-field disabled" onclick="upload()">Upload</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            validate();
+        });
+
+        function validate() {
+            if ($("#select_pdf").val() != '') {
+                $("#upload_btn").removeClass("disabled");
+            }
+        };
+
+        $("#upload_btn").click(function() {
+            var fd = new FormData();
+            var files = $('#file');
+            fd.append('file', $('input[type=file]')[0].files[0]);
+
+            $(this).replaceWith(`<div class="progress"><div class="indeterminate"></div></div>`);
+
+            $.ajax({
+                url: '{{.}}/file',
+                type: 'post',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    $('body').replaceWith(response);
+                },
+            });
+        });
+    </script>
+</body>
+
+</html>
