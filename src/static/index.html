@@ -51,7 +51,7 @@
             $(this).replaceWith(`<div class="progress"><div class="indeterminate"></div></div>`);
 
             $.ajax({
-                url: '{{.}}/file',
+                url: '{{.}}',
                 type: 'post',
                 data: fd,
                 contentType: false,
