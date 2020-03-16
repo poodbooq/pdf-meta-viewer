@@ -1,2 +1,6 @@
-# pdf-meta-viewer
-Simple tool used to view metadata of PDF files
+# PDF Meta Viewer
+```sh
+$ cd pdf-meta-viewer
+$ go run main.go
+```
+[Open PDF Meta Viewer in browser](http://localhost:8765/)
