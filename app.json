@@ -1,0 +1,11 @@
+{
+    "name": "PDF Meta Viewer",
+    "description": "View pdf-files' meta info",
+    "keywords": [
+      "pdf",
+      "meta"
+    ],
+    "website": "https://github.com/poodbooq/pdf-meta-viewer",
+    "repository": "https://github.com/poodbooq/pdf-meta-viewer"
+  }
+  
