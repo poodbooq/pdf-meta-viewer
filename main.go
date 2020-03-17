@@ -36,6 +36,7 @@ func main() {
 	if port == "" {
 		log.Fatal("$PORT must be set")
 	}
+	port = ":" + port
 
 	http.HandleFunc("/", handler)
 
