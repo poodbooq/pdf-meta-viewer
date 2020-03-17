@@ -15,13 +15,13 @@ var (
 )
 
 const (
+	tmplDir   = "static"
 	tmplIndex = "index.html"
 	tmplMeta  = "meta.html"
 	tmplError = "error.html"
 )
 
 func init() {
-	tmplDir := "static"
 	tmpl = template.Must(template.ParseFiles(
 		filepath.Join(tmplDir, tmplIndex),
 		filepath.Join(tmplDir, tmplMeta),
