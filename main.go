@@ -11,18 +11,28 @@ import (
 )
 
 var (
-	port = ":8080"
+	port string
 	tmpl = new(template.Template)
 )
 
 const (
+	tmplDir := "static"
+	
 	tmplIndex = "index.html"
 	tmplMeta  = "meta.html"
 	tmplError = "error.html"
 )
 
 func init() {
-	tmplDir := "static"
+	port = os.Getenv("PORT")
+
+	if port == "" {
+		log.Fatal("$PORT must be set")
+	}
+
+	port = ":" + port
+
+	
 	tmpl = template.Must(template.ParseFiles(
 		filepath.Join(tmplDir, tmplIndex),
 		filepath.Join(tmplDir, tmplMeta),
@@ -31,13 +41,6 @@ func init() {
 }
 
 func main() {
-	port = os.Getenv("PORT")
-
-	if port == "" {
-		log.Fatal("$PORT must be set")
-	}
-	port = ":" + port
-
 	http.HandleFunc("/", handler)
 
 	if err := http.ListenAndServe(port, nil); err != nil {
