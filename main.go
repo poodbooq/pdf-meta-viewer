@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	port = ":80"
+	port = ":8080"
 	tmpl = new(template.Template)
 )
 
