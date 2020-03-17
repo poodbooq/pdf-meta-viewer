@@ -114,7 +114,7 @@ func getPageSize(ctx *pdfcpu.Context) string {
 		} else if d.Portrait() {
 			orientation = "letter"
 		} else {
-			orientation = "unknown orientation"
+			orientation = "unknown"
 		}
 
 		results = append(results,
