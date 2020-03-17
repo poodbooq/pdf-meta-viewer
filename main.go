@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 	"path/filepath"
 	"text/template"
 
@@ -30,6 +31,12 @@ func init() {
 }
 
 func main() {
+	port = os.Getenv("PORT")
+
+	if port == "" {
+		log.Fatal("$PORT must be set")
+	}
+
 	http.HandleFunc("/", handler)
 
 	if err := http.ListenAndServe(port, nil); err != nil {
