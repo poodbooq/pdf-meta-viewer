@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"text/template"
 
-	"github.com/poodbooq/pdf-meta-viewer/src/pdf"
+	"github.com/poodbooq/pdf-meta-viewer/pdf"
 )
 
 var (
@@ -21,7 +21,7 @@ const (
 )
 
 func init() {
-	tmplDir := "src/static"
+	tmplDir := "static"
 	tmpl = template.Must(template.ParseFiles(
 		filepath.Join(tmplDir, tmplIndex),
 		filepath.Join(tmplDir, tmplMeta),

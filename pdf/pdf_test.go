@@ -112,7 +112,7 @@ var testMetas = []struct {
 func TestGetMeta(t *testing.T) {
 	for _, expectedMeta := range testMetas {
 		t.Run(expectedMeta.Meta.Filename, func(t *testing.T) {
-			file, err := os.Open(filepath.Join("../../pdf_samples", expectedMeta.Meta.Filename))
+			file, err := os.Open(filepath.Join("pdf_samples", expectedMeta.Meta.Filename))
 			if err != nil {
 				t.Fatal(err)
 			}
