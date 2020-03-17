@@ -20,3 +20,6 @@ $ go run main.go
 ### Check out the application
 Open http://localhost:8765/ in your browser.
 ### Use it!
+
+### Alternatively you can check it out on heroku:
+https://nameless-cliffs-49994.herokuapp.com/
