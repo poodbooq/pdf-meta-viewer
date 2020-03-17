@@ -21,7 +21,7 @@ const (
 )
 
 func init() {
-	tmplDir := "../static"
+	tmplDir := "static"
 	tmpl = template.Must(template.ParseFiles(
 		filepath.Join(tmplDir, tmplIndex),
 		filepath.Join(tmplDir, tmplMeta),
